@@ -31,9 +31,10 @@ class Code extends Model
     {
         $renderer = new ImageRenderer(
             new RendererStyle($size),
-            new SvgImageBackEnd()
+            new SvgImageBackEnd
         );
         $writer = new Writer($renderer);
+
         return $writer->writeString($this->data);
     }
 }
