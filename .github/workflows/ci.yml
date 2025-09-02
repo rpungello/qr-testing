@@ -5,7 +5,7 @@ on:
     types: [released]
 
 env:
-  REGISTRY: ghcr.io
+  REGISTRY: ${{ vars.REGISTRY }}
   IMAGE_NAME: ${{ github.repository }}
 
 jobs:
