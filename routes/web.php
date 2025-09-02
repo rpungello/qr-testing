@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\AddCode;
 use App\Livewire\AddResource;
 use App\Livewire\CreateProject;
 use App\Livewire\ListProjects;
@@ -30,6 +31,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('projects/{project}', ViewProject::class)->name('projects.view');
     Route::get('projects/{project}/add-resource', AddResource::class)->name('projects.add-resource');
     Route::get('resources/{resource}', ViewResource::class)->name('resources.view');
+    Route::get('resources/{resource}/add-code', AddCode::class)->name('resources.add-code');
 });
 
 require __DIR__.'/auth.php';
