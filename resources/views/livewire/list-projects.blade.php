@@ -1,5 +1,5 @@
 <div>
-    <flux:breadcrumbs>
+    <flux:breadcrumbs class="mb-4">
         <flux:breadcrumbs.item icon="home" :href="route('dashboard')"/>
         <flux:breadcrumbs.item>
             {{ __('Projects') }}
