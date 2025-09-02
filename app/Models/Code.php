@@ -2,6 +2,10 @@
 
 namespace App\Models;
 
+use BaconQrCode\Renderer\Image\SvgImageBackEnd;
+use BaconQrCode\Renderer\ImageRenderer;
+use BaconQrCode\Renderer\RendererStyle\RendererStyle;
+use BaconQrCode\Writer;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -21,5 +25,15 @@ class Code extends Model
     public function resource(): BelongsTo
     {
         return $this->belongsTo(Resource::class);
+    }
+
+    public function qrCodeSvg(int $size): string
+    {
+        $renderer = new ImageRenderer(
+            new RendererStyle($size),
+            new SvgImageBackEnd()
+        );
+        $writer = new Writer($renderer);
+        return $writer->writeString($this->data);
     }
 }

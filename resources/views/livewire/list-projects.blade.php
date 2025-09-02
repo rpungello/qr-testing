@@ -25,6 +25,13 @@
                     </flux:table.cell>
                     <flux:table.cell><p class="whitespace-pre-wrap">{{ $project->description }}</p></flux:table.cell>
                     <flux:table.cell>
+                        <!-- Print Button -->
+                        <flux:button icon="printer"
+                                     size="sm"
+                                     variant="primary"
+                                     :href="route('projects.print', ['project' => $project])"
+                        />
+
                         <!-- Edit Button -->
                         <flux:button icon="pencil"
                                      size="sm"

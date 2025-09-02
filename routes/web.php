@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PrintProjectController;
 use App\Livewire\AddCode;
 use App\Livewire\AddResource;
 use App\Livewire\CreateProject;
@@ -31,6 +32,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('projects/create', CreateProject::class)->name('projects.create');
     Route::get('projects/{project}', ViewProject::class)->name('projects.view');
     Route::get('projects/{project}/add-resource', AddResource::class)->name('projects.add-resource');
+    Route::get('projects/{project}/print', PrintProjectController::class)->name('projects.print');
     Route::get('resources/{resource}', ViewResource::class)->name('resources.view');
     Route::get('resources/{resource}/add-code', AddCode::class)->name('resources.add-code');
     Route::get('codes/{code}', ViewCode::class)->name('codes.view');
