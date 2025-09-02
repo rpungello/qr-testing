@@ -8,6 +8,7 @@ jobs:
   changelog:
     name: Update changelog
     runs-on: ubuntu-latest
+    environment: Build
     permissions:
       contents: write
 
@@ -39,6 +40,7 @@ jobs:
   docker:
     name: Build and push Docker image
     runs-on: ubuntu-latest
+    environment: Build
     needs: changelog
     steps:
       - name: Checkout repo
