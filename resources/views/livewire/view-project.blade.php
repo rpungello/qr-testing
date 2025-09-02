@@ -52,6 +52,7 @@
         </flux:table.rows>
     </flux:table>
 
+    <!-- Add Resource -->
     <flux:button variant="primary"
                  icon="plus"
                  :href="route('projects.add-resource', ['project' => $project])"

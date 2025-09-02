@@ -36,4 +36,10 @@ class ViewResource extends Component
 
         Flux::toast('Resource updated successfully!', variant: 'success');
     }
+
+    public function remove(): void
+    {
+        $this->resource->delete();
+        $this->redirectRoute('projects.view', ['project' => $this->resource->project]);
+    }
 }
