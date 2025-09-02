@@ -7,6 +7,7 @@ use App\Livewire\ListProjects;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
+use App\Livewire\ViewCode;
 use App\Livewire\ViewProject;
 use App\Livewire\ViewResource;
 use Illuminate\Support\Facades\Route;
@@ -32,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('projects/{project}/add-resource', AddResource::class)->name('projects.add-resource');
     Route::get('resources/{resource}', ViewResource::class)->name('resources.view');
     Route::get('resources/{resource}/add-code', AddCode::class)->name('resources.add-code');
+    Route::get('codes/{code}', ViewCode::class)->name('codes.view');
 });
 
 require __DIR__.'/auth.php';

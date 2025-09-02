@@ -36,7 +36,10 @@
                     <flux:table.cell>{{ $code->description }}</flux:table.cell>
                     <flux:table.cell>{{ $code->data }}</flux:table.cell>
                     <flux:table.cell>
-
+                        <flux:button icon="pencil"
+                                     size="sm"
+                                     :href="route('codes.view', ['code' => $code])"
+                        />
                     </flux:table.cell>
                 </flux:table.row>
             @endforeach
