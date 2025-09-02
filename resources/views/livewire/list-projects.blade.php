@@ -1,4 +1,11 @@
 <div>
+    <flux:breadcrumbs>
+        <flux:breadcrumbs.item icon="home" :href="route('dashboard')"/>
+        <flux:breadcrumbs.item>
+            {{ __('Projects') }}
+        </flux:breadcrumbs.item>
+    </flux:breadcrumbs>
+
     <flux:table>
         <flux:table.columns>
             <flux:table.column>{{ __('Name') }}</flux:table.column>

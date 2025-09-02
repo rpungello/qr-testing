@@ -1,10 +1,21 @@
 <div>
-    <form wire:submit.prevent="save" class="space-y-4">
-        <!-- Heading -->
-        <flux:heading size="xl" level="1">
-            {{ __('View Code') }}
-        </flux:heading>
+    <flux:breadcrumbs class="mb-4">
+        <flux:breadcrumbs.item icon="home" :href="route('dashboard')"/>
+        <flux:breadcrumbs.item :href="route('projects.index')">
+            {{ __('Projects') }}
+        </flux:breadcrumbs.item>
+        <flux:breadcrumbs.item :href="route('projects.view', $code->resource->project)">
+            {{ $code->resource->project->name }}
+        </flux:breadcrumbs.item>
+        <flux:breadcrumbs.item :href="route('resources.view', $code->resource)">
+            {{ $code->resource->name }}
+        </flux:breadcrumbs.item>
+        <flux:breadcrumbs.item>
+            {{ $code->name ?: $code->data }}
+        </flux:breadcrumbs.item>
+    </flux:breadcrumbs>
 
+    <form wire:submit.prevent="save" class="space-y-4">
         <!-- Name -->
         <flux:input wire:model="name"
                     label="{{ __('Name') }}"
