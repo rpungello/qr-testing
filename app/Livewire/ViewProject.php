@@ -10,7 +10,7 @@ class ViewProject extends Component
 {
     public Project $project;
 
-    public function render():View
+    public function render(): View
     {
         return view('livewire.view-project');
     }
