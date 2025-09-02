@@ -2,7 +2,7 @@
     <form wire:submit.prevent="save" class="space-y-4">
         <!-- Heading -->
         <flux:heading size="xl" level="1">
-            {{ __('New Project') }}
+            {{ __('View Project') }}
         </flux:heading>
 
         <!-- Name -->
@@ -26,6 +26,26 @@
             <flux:button variant="danger" type="button">{{ __('Delete') }}</flux:button>
         </flux:modal.trigger>
     </form>
+
+    <flux:table>
+        <flux:table.columns>
+            <flux:table.column>{{ __('Name') }}</flux:table.column>
+            <flux:table.column>{{ __('QR Count') }}</flux:table.column>
+            <flux:table.column />
+        </flux:table.columns>
+
+        <flux:table.rows>
+            @foreach($project->resources as $resource)
+                <flux:table.row>
+                    <flux:table.cell>{{ $resource->name }}</flux:table.cell>
+                    <flux:table.cell>{{ \Illuminate\Support\Number::format($resource->codes->count()) }}</flux:table.cell>
+                    <flux:table.cell>
+                        <!-- Actions -->
+                    </flux:table.cell>
+                </flux:table.row>
+            @endforeach
+        </flux:table.rows>
+    </flux:table>
 
     <flux:modal name="delete-project" class="min-w-[22rem]">
         <div class="space-y-6">

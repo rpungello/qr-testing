@@ -26,6 +26,10 @@ class ViewProject extends Component
         $this->name = $this->project->name;
         $this->url = $this->project->url;
         $this->description = $this->project->description;
+
+        $this->project->load([
+            'resources.codes',
+        ]);
     }
 
     public function render(): View

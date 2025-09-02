@@ -5,27 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Project extends Model
+class Code extends Model
 {
     use HasFactory, SoftDeletes;
 
     protected $fillable = [
-        'user_id',
+        'resource_id',
         'name',
-        'url',
         'description',
+        'data',
     ];
 
-    public function user(): BelongsTo
+    public function resource(): BelongsTo
     {
-        return $this->belongsTo(User::class);
-    }
-
-    public function resources(): HasMany
-    {
-        return $this->hasMany(Resource::class);
+        return $this->belongsTo(Resource::class);
     }
 }
