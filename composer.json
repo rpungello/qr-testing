@@ -1,11 +1,11 @@
 {
     "$schema": "https://getcomposer.org/schema.json",
-    "name": "laravel/livewire-starter-kit",
+    "name": "rpungello/qr-testing",
     "type": "project",
-    "description": "The official Laravel starter kit for Livewire.",
+    "description": "Simple web app to generate QR codes for testing mobile scanner applications.",
     "keywords": [
-        "laravel",
-        "framework"
+        "qr",
+        "testing"
     ],
     "license": "MIT",
     "require": {
