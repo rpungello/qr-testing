@@ -1,0 +1,8 @@
+name: qr-testing
+services:
+  app:
+    image: "ghcr.io/rpungello/qr-testing:${IMAGE_TAG:-latest}"
+    env_file: .env
+    ports:
+      - '${WEB_PORT:-80}:8000'
+    restart: unless-stopped
