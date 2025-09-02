@@ -1,11 +1,13 @@
 <?php
 
+use App\Livewire\AddResource;
 use App\Livewire\CreateProject;
 use App\Livewire\ListProjects;
 use App\Livewire\Settings\Appearance;
 use App\Livewire\Settings\Password;
 use App\Livewire\Settings\Profile;
 use App\Livewire\ViewProject;
+use App\Livewire\ViewResource;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,6 +28,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('projects', ListProjects::class)->name('projects.index');
     Route::get('projects/create', CreateProject::class)->name('projects.create');
     Route::get('projects/{project}', ViewProject::class)->name('projects.view');
+    Route::get('projects/{project}/add-resource', AddResource::class)->name('projects.add-resource');
+    Route::get('resources/{resource}', ViewResource::class)->name('resources.view');
 });
 
 require __DIR__.'/auth.php';

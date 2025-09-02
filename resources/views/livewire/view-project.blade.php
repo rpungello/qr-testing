@@ -30,6 +30,7 @@
     <flux:table>
         <flux:table.columns>
             <flux:table.column>{{ __('Name') }}</flux:table.column>
+            <flux:table.column>{{ __('Description') }}</flux:table.column>
             <flux:table.column>{{ __('QR Count') }}</flux:table.column>
             <flux:table.column />
         </flux:table.columns>
@@ -38,14 +39,25 @@
             @foreach($project->resources as $resource)
                 <flux:table.row>
                     <flux:table.cell>{{ $resource->name }}</flux:table.cell>
+                    <flux:table.cell><p class="whitespace-pre-wrap">{{ $resource->description }}</p></flux:table.cell>
                     <flux:table.cell>{{ \Illuminate\Support\Number::format($resource->codes->count()) }}</flux:table.cell>
                     <flux:table.cell>
-                        <!-- Actions -->
+                        <flux:button icon="pencil"
+                                     size="sm"
+                                     :href="route('resources.view', ['resource' => $resource])"
+                        />
                     </flux:table.cell>
                 </flux:table.row>
             @endforeach
         </flux:table.rows>
     </flux:table>
+
+    <flux:button variant="primary"
+                 icon="plus"
+                 :href="route('projects.add-resource', ['project' => $project])"
+    >
+        {{ __('Add Resource') }}
+    </flux:button>
 
     <flux:modal name="delete-project" class="min-w-[22rem]">
         <div class="space-y-6">
