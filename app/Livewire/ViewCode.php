@@ -3,7 +3,6 @@
 namespace App\Livewire;
 
 use App\Models\Code;
-use Flux\Flux;
 use Illuminate\Contracts\View\View;
 use Livewire\Attributes\Validate;
 use Livewire\Component;
