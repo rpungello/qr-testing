@@ -17,7 +17,7 @@
             <div>
                 <flux:heading size="lg" level="1">{{ $resource->name }}</flux:heading>
                 @if($resource->description)
-                    <p class="whitespace-pre-wrap text-sm opacity-50">{{ $resource->description }}</p>
+                    <flux:text variant="subtle" class="whitespace-pre-wrap">{{ $resource->description }}</flux:text>
                 @endif
                 <div class="flex flex-row flex-wrap gap-4">
                     @foreach($resource->codes as $code)
@@ -28,9 +28,12 @@
                                 </flux:heading>
                             @endif
                             @if($code->description)
-                                <p class="whitespace-pre-wrap text-sm opacity-50">{{ $code->description }}</p>
+                                <flux:text class="whitespace-pre-wrap">{{ $code->description }}</flux:text>
                             @endif
                             {!! $code->qrCodeSvg(200) !!}
+                            <flux:text variant="subtle">
+                                {{ $code->data }}
+                            </flux:text>
                         </flux:card>
                     @endforeach
                 </div>
