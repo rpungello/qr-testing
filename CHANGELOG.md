@@ -2,6 +2,10 @@
 
 All notable changes to `rpungello/qr-testing` will be documented in this file.
 
+## 1.0.0 - 2025-09-03
+
+Improve print UI
+
 ## 0.1.4 - 2025-09-02
 
 Trust all proxies by default
